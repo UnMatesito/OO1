@@ -2,12 +2,6 @@ package oo1.ej5;
 
 public class Circulo implements Figura2D{
     private double radio;
-    private double diametro;
-
-
-    public void setDiametro(double radio){
-        this.diametro = radio * 2;
-    }
 
     public double getDiametro(){
         return this.radio * 2;
@@ -15,7 +9,6 @@ public class Circulo implements Figura2D{
 
     public void setRadio(double radio){
         this.radio = radio;
-        setDiametro(radio);
     }
 
     public double getRadio(){
@@ -29,6 +22,6 @@ public class Circulo implements Figura2D{
 
     @Override
     public double getPerimetro(){
-        return diametro * Math.PI;
+        return this.getDiametro() * Math.PI;
     }
 }

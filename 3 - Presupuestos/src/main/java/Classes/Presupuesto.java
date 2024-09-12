@@ -28,10 +28,6 @@ public class Presupuesto {
     }
 
     public double calcularTotal(){
-        double total = 0;
-        for (Item item : this.items){
-            total += item.costo();
-        }
-        return total;
+        return items.stream().mapToDouble(Item::costo).sum();
     }
 }

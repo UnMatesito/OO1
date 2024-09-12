@@ -5,16 +5,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Balanza {
-    private double precioTotal;
-    private double pesoTotal;
     private List<Producto> productos = new ArrayList<>();
 
     /*
      * Pone en cero tanto el peso como el precio de los productos
      */
     public void ponerEnCero(){
-        this.precioTotal = 0;
-        this.pesoTotal = 0;
         this.productos = new ArrayList<>();
     }
 
@@ -22,8 +18,6 @@ public class Balanza {
      * Agrega un producto a la balanza
      */
     public void agregarProducto(Producto producto){
-        this.pesoTotal += producto.getPeso();
-        this.precioTotal += producto.getPrecio();
         this.productos.add(producto);
     }
 
@@ -31,13 +25,7 @@ public class Balanza {
      * emite un ticket con el resumen de los productos
      */
     public Ticket emitirTicket(){
-        Ticket ticket = new Ticket();
-        LocalDate fecha = LocalDate.now();
-        ticket.setFecha(fecha);
-        ticket.setPrecioTotal(this.precioTotal);
-        ticket.setPesoTotal(this.pesoTotal);
-        ticket.setProductos(getProductos());
-        return ticket;
+        return new Ticket(this.getPrecioTotal(), this.getPesoTotal(), this.getProductos());
     }
 
     public int getCantidadDeProductos() {
@@ -45,11 +33,11 @@ public class Balanza {
     }
 
     public double getPrecioTotal() {
-        return precioTotal;
+        return productos.stream().mapToDouble(Producto::getPrecio).sum();
     }
 
     public double getPesoTotal() {
-        return pesoTotal;
+        return productos.stream().mapToDouble(Producto::getPeso).sum();
     }
 
     public List<Producto> getProductos() {
