@@ -36,10 +36,10 @@ public class Farola {
      */
     public void turnOn(){
         // Preguntar si esta implentacion esta bien o debo usar streams
-        this.estado = true;
-        for (Farola farola : vecinos){
-            if (!farola.estado){
-                farola.estado = true;
+        if (this.isOff()){
+            this.estado = true;
+            for (Farola farola : vecinos){
+                farola.turnOn();
             }
         }
     }
@@ -49,10 +49,10 @@ public class Farola {
      */
     public void turnOff(){
         // Preguntar si esta implentacion esta bien o debo usar streams
-        this.estado = false;
-        for (Farola farola : vecinos){
-            if (farola.estado){
-                farola.estado = false;
+        if (this.isOn()){
+            this.estado = false;
+            for (Farola farola : vecinos){
+                farola.turnOff();
             }
         }
     }
