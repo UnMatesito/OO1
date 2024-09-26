@@ -11,7 +11,7 @@ public class TestPlazoFijo {
 
     @BeforeEach
     public void setUp() {
-        this.inversion1 = new PlazoFijo(LocalDate.now().minusDays(10), 1000, 0.02);
+        this.inversion1 = new PlazoFijo(LocalDate.now().minusDays(10), 1000, 2);
     }
 
     @Test

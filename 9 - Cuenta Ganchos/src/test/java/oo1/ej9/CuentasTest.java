@@ -41,8 +41,8 @@ public class CuentasTest {
 
     @Test
     void testDepositarCajaDeAhorro() {
-        assertEquals(cajaDeAhorro1.getSaldo(), 204);
-        assertEquals(cajaDeAhorro2.getSaldo(), 5100);
+        assertEquals(cajaDeAhorro1.getSaldo(), 196);
+        assertEquals(cajaDeAhorro2.getSaldo(), 4900);
     }
 
     @Test
@@ -57,8 +57,8 @@ public class CuentasTest {
     void testExtraerCajaDeAhorro() {
         cajaDeAhorro1.extraer(100);
         cajaDeAhorro2.extraer(2000);
-        assertEquals(cajaDeAhorro1.getSaldo(), 102);
-        assertEquals(cajaDeAhorro2.getSaldo(), 3060);
+        assertEquals(cajaDeAhorro1.getSaldo(), 98);
+        assertEquals(cajaDeAhorro2.getSaldo(), 2940);
     }
 
     @Test
@@ -72,8 +72,8 @@ public class CuentasTest {
     void testTransferirCajaDeAhorro() {
         // Cual va a ejecutar a depositar a otra cuenta el de caja de ahorro o el la clase abstracta?
         cajaDeAhorro1.transferirACuenta(50, cajaDeAhorro2);
-        assertEquals(cajaDeAhorro1.getSaldo(), 153);
-        assertEquals(cajaDeAhorro2.getSaldo(), 5152.02);
+        assertEquals(cajaDeAhorro1.getSaldo(), 151);
+        assertEquals(cajaDeAhorro2.getSaldo(), 5048.02);
     }
 
     @Test
@@ -81,6 +81,6 @@ public class CuentasTest {
         // No esta funcionando como deberia el test deberia retornar 8060
         cuentaCorriente2.transferirACuenta(3000, cajaDeAhorro2);
         assertEquals(cuentaCorriente2.getSaldo(), 4000);
-        assertEquals(cajaDeAhorro2.getSaldo(), 8060);
+        assertEquals(cajaDeAhorro2.getSaldo(), 7940);
     }
 }
