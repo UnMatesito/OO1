@@ -4,11 +4,11 @@ public class CajaDeAhorro extends Cuenta{
 
     @Override
     protected boolean puedeExtaer(double monto) {
-        return !(this.getSaldo() < monto);
+        return this.getSaldo() > aplicarCostoAdicional(monto);
     }
 
     private double aplicarCostoAdicional(double monto) {
-        return monto + (monto * 0.02);
+        return monto - (monto * 0.02);
     }
 
     @Override
@@ -17,12 +17,12 @@ public class CajaDeAhorro extends Cuenta{
     }
 
     @Override
-    public boolean transferirACuenta(double monto, Cuenta cuentaDestino) {
-        return super.transferirACuenta(aplicarCostoAdicional(monto), cuentaDestino);
+    public boolean extraer(double monto) {
+        return super.extraer(aplicarCostoAdicional(monto));
     }
 
     @Override
-    public boolean extraer(double monto) {
-        return super.extraer(aplicarCostoAdicional(monto));
+    protected void extraerSinControlar(double monto){
+        super.extraerSinControlar(aplicarCostoAdicional(monto));
     }
 }
