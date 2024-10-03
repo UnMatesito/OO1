@@ -38,8 +38,8 @@ class EmailTest {
 
     @Test
     void contiene() {
-        /*assertTrue(this.emailSinAdjuntos.contiene("12345"));
-        assertFalse(this.emailSinAdjuntos.contiene("Mail"));*/
+        /*assertTrue(this.emailSinAdjuntos.buscar("12345"));
+        assertFalse(this.emailSinAdjuntos.buscar("Mail"));*/
     }
 
 }

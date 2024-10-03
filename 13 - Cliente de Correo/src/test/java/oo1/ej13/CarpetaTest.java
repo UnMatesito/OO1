@@ -32,15 +32,15 @@ class CarpetaTest {
 
     @Test
     void testBuscar() {
-        /*this.carpetaConEmails.addEmail(email);
+        this.carpetaConEmails.addEmail(email);
         assertEquals(this.email,this.carpetaConEmails.buscar("12345Hola"));
-        assertNull(this.carpetaSinEmails.buscar("1234"));*/
+        assertNull(this.carpetaSinEmails.buscar("1234"));
     }
 
     @Test
     void testEspacioOcupado() {
-        /*this.carpetaConEmails.addEmail(email);
+        this.carpetaConEmails.addEmail(email);
         this.carpetaConEmails.addEmail(email2);
-        assertEquals(23.00,this.carpetaConEmails.espacioOcupado());*/
+        assertEquals(23.00,this.carpetaConEmails.espacioOcupado());
     }
 }

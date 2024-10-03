@@ -31,6 +31,14 @@ public class Email {
     }
 
     public int tamaño(){
-        return titulo.length() + cuerpo.length() + adjuntos().stream().mapToInt(Archivo::tamaño).sum();
+        return titulo.length() + cuerpo.length() + adjuntos().stream().mapToInt(archivo -> archivo.tamaño()).sum();
+    }
+
+    public Email buscar(String texto){
+        if (this.titulo.contains(texto) || this.cuerpo.contains(texto)){
+            return this;
+        } else {
+            return null;
+        }
     }
 }
