@@ -3,17 +3,17 @@
 
 ### Conceptos Candidatos
 
-* oo1.ej15.Usuario
+* Usuario
 * Nombre
 * Domicilio
 * Consumos
-* oo1.ej15.Consumo de energia activa
+* Consumo de energia activa
 * costo asociado
-* oo1.ej15.Consumo de energia reactiva
+* Consumo de energia reactiva
 * bonificacion
 * Cuadro tarifario
 * precio kWh (Ajustado Periodicamente)
-* oo1.ej15.Factura
+* Factura
 * fecha
 * monto final de la factura
 * usuario factura
