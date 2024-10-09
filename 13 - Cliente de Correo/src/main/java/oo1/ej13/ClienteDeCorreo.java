@@ -2,7 +2,6 @@ package oo1.ej13;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class ClienteDeCorreo {
     private Carpeta inbox;
