@@ -1,7 +1,19 @@
 package oo1.ej15;
 
-public abstract class Consumo {
-    private double factorDePotencia;
+public class Consumo {
+    private double kwh;
+    private double kvarh;
 
+    public Consumo(double kwh, double kvarh) {
+        this.kwh = kwh;
+        this.kvarh = kvarh;
+    }
 
+    public double getKwh() {
+        return kwh;
+    }
+
+    public double getKvarh() {
+        return kvarh;
+    }
 }

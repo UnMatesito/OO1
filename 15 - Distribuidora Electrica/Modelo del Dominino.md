@@ -36,6 +36,6 @@
 ### Asignacion de asociaciones
 
 <p align="center">
-    <img src="img/Domino.png" alt="Domain"/>
+    <img src="img/Dominio.png" alt="Domain"/>
 </p>
 
