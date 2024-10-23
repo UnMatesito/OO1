@@ -15,6 +15,10 @@ public class Usuario {
         this.consumos = new ArrayList<>();
     }
 
+    public void addConsumo(Consumo consumo){
+        consumos.add(consumo);
+    }
+
     public String getNombre() {
         return nombre;
     }
@@ -23,15 +27,22 @@ public class Usuario {
         return domicilio;
     }
 
-    public List<Consumo> getConsumos() {
+    public List<Consumo> getConsumos(){
         return new ArrayList<>();
     }
 
-    public Factura emitirFactura(){
-        return new Factura(this, LocalDate.now());
+    private double factorDePotencia(Consumo consumo){
+        return consumo.getKwh() / Math.sqrt(Math.pow(consumo.getKwh(), 2) + Math.pow(consumo.getKvarh(), 2));
     }
 
-    public void addConsumo(Consumo consumo){
-        this.consumos.add(consumo);
+    public Factura emitirFactura(CuadroTarifario tarifa){
+        double bonificacion = 0;
+        double costoConsumo = consumos.getLast().getKwh() * tarifa.getPrecioKWH();
+        double montoFinal = costoConsumo;
+        if (factorDePotencia(consumos.getLast()) == 0.8){
+            bonificacion = 0.1;
+            montoFinal = costoConsumo * bonificacion;
+        }
+        return new Factura(this, LocalDate.now(), montoFinal, bonificacion);
     }
 }
