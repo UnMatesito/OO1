@@ -72,17 +72,7 @@ public class Empleado{
     }
 
     private double calcularMonto(double sueldoBasico, int antiguedad){
-        double descuento = 0;
-        // Solucion objetosa?????
-        if (antiguedad >= 20) {
-            descuento = 1;
-        } else if (antiguedad >= 15) {
-            descuento = 0.7;
-        } else if (antiguedad >= 10) {
-            descuento = 0.5;
-        } else if (antiguedad >= 5) {
-            descuento = 0.3;
-        }
-        return sueldoBasico + (sueldoBasico * descuento);
+        Antiguedad a = null;
+        return sueldoBasico + (sueldoBasico * a.getDescuento(antiguedad));
     }
 }
