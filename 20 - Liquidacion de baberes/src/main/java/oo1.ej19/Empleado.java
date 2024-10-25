@@ -13,7 +13,6 @@ public class Empleado{
     private int cuil;
     private LocalDate fechaNacimiento;
     private boolean hasHijos;
-    // Los contratos se encuentrar ordenados por algun criterio
     private List<Contrato> contratos;
 
     public Empleado(String nombre, String apellido, int cuil, LocalDate fechaNacimiento, boolean hasHijos, List<Contrato> contratos) {
@@ -72,7 +71,16 @@ public class Empleado{
     }
 
     private double calcularMonto(double sueldoBasico, int antiguedad){
-        Antiguedad a = null;
-        return sueldoBasico + (sueldoBasico * a.getDescuento(antiguedad));
+        double descuento = 0;
+        if (antiguedad >= 20){
+            descuento = new VeinteAños().getDescuento(antiguedad);
+        } else if (antiguedad >= 15){
+            descuento = new QuinceAños().getDescuento(antiguedad);
+        } else if (antiguedad >= 10){
+            descuento = new DiezAños().getDescuento(antiguedad);
+        } else if (antiguedad >= 5){
+            descuento = new CincoAños().getDescuento(antiguedad);
+        }
+        return sueldoBasico + (sueldoBasico * descuento);
     }
 }
