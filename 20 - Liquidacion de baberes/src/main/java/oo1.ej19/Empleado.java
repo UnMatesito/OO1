@@ -15,7 +15,7 @@ public class Empleado{
     private boolean hasHijos;
     private List<Contrato> contratos;
 
-    public Empleado(String nombre, String apellido, int cuil, LocalDate fechaNacimiento, boolean hasHijos, List<Contrato> contratos) {
+    public Empleado(String nombre, String apellido, int cuil, LocalDate fechaNacimiento, boolean hasHijos) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cuil = cuil;
