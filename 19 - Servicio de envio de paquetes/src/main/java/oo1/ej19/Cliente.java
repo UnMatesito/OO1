@@ -10,7 +10,6 @@ import java.util.stream.Collectors;
 public abstract class Cliente {
     private String nombre;
     private String direccion;
-    // Los envios estan ordenados por fecha??
     private List<Envio> envios;
 
     public Cliente(String nombre, String direccion) {
@@ -35,7 +34,7 @@ public abstract class Cliente {
         this.envios.add(envio);
     }
 
-    public double CalcularMontoPorPeriodo(LocalDate fechaInicio, LocalDate fechaFin){
+    public double calcularMontoPorPeriodo(LocalDate fechaInicio, LocalDate fechaFin){
         DateLapse intervalo = new DateLapse(fechaInicio, fechaFin);
         List<Envio> e = envios.stream().filter(envio -> intervalo.includesDate(envio.getFechaDespacho())).collect(Collectors.toList());
         return e.stream().mapToDouble(envio -> envio.calcularCosto()).sum();
