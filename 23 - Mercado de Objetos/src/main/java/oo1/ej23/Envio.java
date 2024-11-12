@@ -1,4 +1,5 @@
 package oo1.ej23;
 
-public abstract class Envio {
+public interface Envio {
+    double costoEnvio(String origen, String destino);
 }

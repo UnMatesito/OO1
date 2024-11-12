@@ -1,8 +1,8 @@
 package oo1.ej23;
 
-public class EnvioRetirarAlComercio implements Envio {
+public class EnvioEnSucursalDeCorreo implements Envio{
     @Override
     public double costoEnvio(String origen, String destino){
-        return 0;
+        return 3000;
     }
 }

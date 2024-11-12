@@ -1,4 +1,5 @@
 package oo1.ej23;
 
-public abstract class Pago {
+public interface Pago {
+    double precioFinal(double precio);
 }
