@@ -4,9 +4,8 @@ public abstract class Usuario {
     private String nombre;
     private double saldo;
 
-    public Usuario(String nombre, double saldo) {
+    public Usuario(String nombre) {
         this.nombre = nombre;
-        this.saldo = saldo;
     }
 
     public String getNombre() {
@@ -21,9 +20,11 @@ public abstract class Usuario {
         this.saldo = saldo;
     }
 
+    protected abstract void procesarViaje(Viaje viaje);
+
     protected abstract double getComision();
 
-    protected void cargarSaldo(){
-        this.saldo = this.saldo + this.getSaldo();
+    protected void cargarSaldo(double monto){
+        this.saldo = monto + (monto * this.getComision());
     }
 }

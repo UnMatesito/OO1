@@ -5,9 +5,10 @@ import java.time.LocalDate;
 public class Conductor extends Usuario{
     private Vehiculo vehiculo;
 
-    public Conductor(String nombre, double saldo, Vehiculo vehiculo) {
-        super(nombre, saldo);
+    public Conductor(String nombre, Vehiculo vehiculo) {
+        super(nombre);
         this.vehiculo = vehiculo;
+        this.vehiculo.setDueño(this);
     }
 
     public Vehiculo getVehiculo() {
@@ -19,10 +20,15 @@ public class Conductor extends Usuario{
     }
 
     @Override
-    public double getComision() {
+    protected double getComision() {
         if (LocalDate.now().getYear() - vehiculo.getAñoFabricacion() < 5){
-            return 1;
+            return 0.01;
         }
-        return 10;
+        return 0.1;
+    }
+
+    @Override
+    public void procesarViaje(Viaje viaje){
+        this.setSaldo(this.getSaldo() - (viaje.valorViaje() + (this.vehiculo.getValorMercado() * 0.01)));
     }
 }

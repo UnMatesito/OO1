@@ -11,13 +11,16 @@ public class Vehiculo {
     private double valorMercado;
     private List<Usuario> tripulantes;
 
-    public Vehiculo(Conductor dueño, String descripcion, int capacidad, int añoFabricacion, double valorMercado) {
-        this.dueño = dueño;
+    public Vehiculo(String descripcion, int capacidad, int añoFabricacion, double valorMercado) {
         this.descripcion = descripcion;
         this.capacidad = capacidad;
         this.añoFabricacion = añoFabricacion;
         this.valorMercado = valorMercado;
         this.tripulantes = new ArrayList<>();
+    }
+
+    public void setDueño(Conductor dueño) {
+        this.dueño = dueño;
     }
 
     public Conductor getDueño() {

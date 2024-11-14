@@ -38,10 +38,7 @@ public class Viaje {
         return fecha;
     }
 
-    public void procesarViaje(){
-        double costoParaCadaPasajero = ((double)this.costoTotal / this.vehiculo.getTripulantes().size());
-
+    public double valorViaje(){
+        return ((double)this.costoTotal / this.vehiculo.getTripulantes().size());
     }
-
-
 }
