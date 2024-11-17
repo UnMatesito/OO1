@@ -23,6 +23,10 @@ public class Vehiculo {
         this.dueño = dueño;
     }
 
+    public void addTripulante(Usuario tripulante) {
+        this.tripulantes.add(tripulante);
+    }
+
     public Conductor getDueño() {
         return dueño;
     }
@@ -45,5 +49,9 @@ public class Vehiculo {
 
     public List<Usuario> getTripulantes() {
         return tripulantes;
+    }
+
+    public int getEstadoDeCapacidad(){
+        return this.tripulantes.size();
     }
 }

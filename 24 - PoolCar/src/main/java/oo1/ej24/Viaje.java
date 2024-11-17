@@ -15,7 +15,11 @@ public class Viaje {
         this.costoTotal = costoTotal;
         this.vehiculo = vehiculo;
         this.fecha = fecha;
-        this.vehiculo.getTripulantes().add(this.vehiculo.getDueño());
+        this.addTripulante(this.vehiculo.getDueño());
+    }
+
+    public void addTripulante(Usuario usuario){
+        this.vehiculo.addTripulante(usuario);
     }
 
     public String getOrigen() {
@@ -38,7 +42,15 @@ public class Viaje {
         return fecha;
     }
 
-    public double valorViaje(){
-        return ((double)this.costoTotal / this.vehiculo.getTripulantes().size());
+    public double valorViajeIndividual(){
+        return this.costoTotal / this.vehiculo.getEstadoDeCapacidad();
+    }
+
+    public boolean isVehiculoLleno(){
+        return this.vehiculo.getEstadoDeCapacidad() > this.vehiculo.getCapacidad();
+    }
+
+    public boolean viajeDentroDeLos30Dias(){
+        return this.fecha.isBefore(LocalDate.now().minusDays(30));
     }
 }

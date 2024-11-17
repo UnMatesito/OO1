@@ -28,6 +28,6 @@ public class Presupuesto {
     }
 
     public double calcularTotal(){
-        return items.stream().mapToDouble(Item::costo).sum();
+        return items.stream().mapToDouble(item -> item.costo()).sum();
     }
 }

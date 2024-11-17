@@ -16,15 +16,15 @@ public class Pasajero extends Usuario{
 
     public void addViaje(Viaje viaje){
         DateLapse intervalo = new DateLapse(LocalDate.now(), viaje.getFecha());
-        if (viaje.getVehiculo().getTripulantes().size() < viaje.getVehiculo().getCapacidad() && intervalo.sizeInDays() >= 2 && this.getSaldo() < 0){
-            viaje.getVehiculo().getTripulantes().add(this);
+        if (viaje.isVehiculoLleno() && intervalo.sizeInDays() >= 2 && this.getSaldo() < 0){
+            viaje.addTripulante(this);
             this.viajes.add(viaje);
         }
     }
 
     @Override
     protected double getComision() {
-        if (this.viajes.stream().filter(viaje -> viaje.getFecha().isBefore(LocalDate.now().minusDays(30))).findAny().orElse(null) != null){
+        if (this.viajes.stream().filter(viaje -> viaje.viajeDentroDeLos30Dias()).findAny().orElse(null) != null){
             return 0;
         }
         return 0.01;
@@ -33,7 +33,7 @@ public class Pasajero extends Usuario{
     @Override
     public void procesarViaje(Viaje viaje){
         if (this.viajes.stream().findAny().orElse(null) != null){
-            this.setSaldo(this.getSaldo() - (viaje.valorViaje() - 500));
+            this.setSaldo(this.getSaldo() - (viaje.valorViajeIndividual() - 500));
         }
     }
 }

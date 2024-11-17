@@ -14,10 +14,6 @@ public class Conductor extends Usuario{
     public Vehiculo getVehiculo() {
         return vehiculo;
     }
-    
-    public void newViaje(String origen, String destino, double costoTotal, LocalDate fecha){
-        Viaje v = new Viaje(origen, destino, costoTotal, this.vehiculo, fecha);
-    }
 
     @Override
     protected double getComision() {
@@ -29,6 +25,6 @@ public class Conductor extends Usuario{
 
     @Override
     public void procesarViaje(Viaje viaje){
-        this.setSaldo(this.getSaldo() - (viaje.valorViaje() + (this.vehiculo.getValorMercado() * 0.01)));
+        this.setSaldo(this.getSaldo() - (viaje.valorViajeIndividual() + (this.vehiculo.getValorMercado() * 0.01)));
     }
 }
