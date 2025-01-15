@@ -28,7 +28,7 @@ public class Cliente extends Persona{
     }
 
     public Bag<String> getPedidosPorCategoria(){
-        return pedidos.stream().map(pedido -> pedido.getProducto().getCategoria()).collect(Collectors.toCollection(BagImpl<String>::new));
+        return pedidos.stream().map(pedido -> pedido.categoria()).collect(Collectors.toCollection(BagImpl<String>::new));
     }
 
 }

@@ -34,4 +34,8 @@ public class Pedido {
     public double getCostoTotal(String origen, String destino){
         return pago.precioFinal(producto.getPrecio()) + envio.costoEnvio(origen, destino);
     }
+
+    public String categoria(){
+        return producto.getCategoria();
+    }
 }
