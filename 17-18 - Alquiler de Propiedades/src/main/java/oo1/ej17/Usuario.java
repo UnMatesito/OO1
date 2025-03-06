@@ -7,33 +7,17 @@ import java.util.List;
 public class Usuario {
     private String nombre;
     private String direccion;
-    private int dni;
+    private int DNI;
     private List<Propiedad> propiedades;
 
-    public Usuario(String nombre, String direccion, int dni) {
+    public Usuario(String nombre, String direccion, int DNI) {
         this.nombre = nombre;
         this.direccion = direccion;
-        this.dni = dni;
+        this.DNI = DNI;
         this.propiedades = new ArrayList<>();
     }
 
-    public void addPropieadad(Propiedad propiedad){
-        this.propiedades.add(propiedad);
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public int getDni() {
-        return dni;
-    }
-
-    public List<Propiedad> getPropiedades() {
-        return new ArrayList<>(this.propiedades);
+    public double calcularIngresos(LocalDate fechaInicio, LocalDate fechaFin){
+        return this.propiedades.stream().mapToDouble(propiedad -> propiedad.ingresosPropieadaPorPeriodo(fechaInicio, fechaFin)).sum() * 0.75;
     }
 }
